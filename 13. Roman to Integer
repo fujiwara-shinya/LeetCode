@@ -1,0 +1,45 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        y=0
+        z=0
+        for i in s:
+            if i=="I":
+                y=y+1
+                z=1
+            elif i == "V":
+                if 0<z<5:
+                    y=y+3
+                else:
+                    y=y+5
+                z=5
+            elif i=="X":
+                if 0<z<10:
+                    y=y+(10-z*2)
+                else:
+                    y=y+10
+                z=10
+            elif i=="L":
+                if 0<z<50:
+                    y=y+(50-z*2)
+                else:
+                    y=y+50
+                z=50
+            elif i=="C":
+                if 0<z<100:
+                    y=y+(100-z*2)
+                else:
+                    y=y+100
+                z=100
+            elif i=="D":
+                if 0<z<500:
+                    y=y+(500-z*2)
+                else:
+                    y=y+500
+                z=500
+            elif i=="M":
+                if 0<z<1000:
+                    y=y+(1000-z*2)
+                else:
+                    y=y+1000
+                z=1000
+        return y
