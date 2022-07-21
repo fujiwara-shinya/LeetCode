@@ -1,0 +1,31 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        A = list(s)
+        a = [0]
+        print(A)
+        for i in A:
+            if i == "(":
+                a = a + [1]
+            elif i == "{":
+                a = a + [2]
+            elif i == "[":
+                a = a + [3]
+            elif i == ")":
+                if a[-1] == 1:
+                    a.pop()
+                else:
+                    return False
+            elif i == "}":
+                if a[-1] == 2:
+                    a.pop()
+                else:
+                    return False
+            elif i == "]":
+                if a[-1] == 3:
+                    a.pop()
+                else:
+                    return False
+        if a == [0]:
+            return True
+        else:
+            return False
