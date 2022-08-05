@@ -1,0 +1,18 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        a = n // 2
+        count = 1
+        for i in range(a):
+            i += 1
+            val = 1
+            for j in range(n-i):
+                j += 1
+                val *= j
+            for j in range(n-2*i):
+                j += 1
+                val /= j
+            for j in range(i):
+                j += 1
+                val /= j
+            count += val
+        return int(count)
